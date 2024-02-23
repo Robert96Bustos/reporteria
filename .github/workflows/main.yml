@@ -1,0 +1,26 @@
+name: Ejecutar Proceso Python
+
+on:
+  schedule:
+    - cron: '30 9 * * 1-5'  # Ejecutar todos los días a las 11:00 am UTC
+
+jobs:
+  ejecutar_proceso:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v2
+      
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'  # Especifica la versión de Python que necesitas
+        
+    - name: Instalar dependencias
+      run: |
+        pip install pandas mysql-connector-python openpyxl
+      
+    - name: Ejecutar el script Python
+      run: |
+        python tu_script.py  # Reemplaza "new_report.py" con el nombre de tu script Python
