@@ -23,4 +23,4 @@ jobs:
       
     - name: Ejecutar el script Python
       run: |
-        python tu_script.py  # Reemplaza "new_report.py" con el nombre de tu script Python
+        python new_report.py 
