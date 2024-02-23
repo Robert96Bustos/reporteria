@@ -1,7 +1,10 @@
 import os
+import openpyxl
 import pandas as pd
 import mysql.connector
 from datetime import datetime
+from openpyxl import load_workbook
+from openpyxl.styles import PatternFill, Font
 
 # Obtener la fecha actual
 current_date = datetime.now().strftime('%d-%m-%Y')
@@ -41,11 +44,25 @@ result = cursor.fetchall()
 df = pd.DataFrame(result, columns=[i[0] for i in cursor.description])
 
 # Guardar DataFrame en un archivo Excel dentro de la carpeta de reportes
-excel_file = os.path.join(report_folder, 'reporte.xlsx')
+excel_file = os.path.join(report_folder, f'reporte_{current_date}.xlsx')
 df.to_excel(excel_file, index=False)
 
 # Cerrar la conexión a la base de datos
 cursor.close()
 connection.close()
+
+# Cargar el libro de trabajo de Excel
+wb = load_workbook(excel_file)
+
+# Obtener la hoja de cálculo activa
+ws = wb.active
+
+# Establecer el color de fondo de las cabeceras de las columnas en rojo
+for cell in ws[1]:
+    cell.fill = PatternFill(start_color="FF0000", end_color="FF0000", fill_type="solid")
+    cell.font = Font(color="FFFFFF")
+
+# Guardar los cambios en el archivo Excel
+wb.save(excel_file)
 
 print(f"¡Reporte generado exitosamente y guardado en la carpeta '{folder_name}' como reporte.xlsx!")
