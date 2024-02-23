@@ -2,7 +2,7 @@ name: Ejecutar Proceso Python
 
 on:
   schedule:
-    - cron: '28 13 * * 1-5'  # Ejecutar todos los días a las 11:00 am UTC
+    - cron: '30 13 * * 1-5'  # Ejecutar todos los días a las 11:00 am UTC
 
 jobs:
   ejecutar_proceso:
@@ -15,7 +15,7 @@ jobs:
     - name: Configurar Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.11'  # Especifica la versión de Python que necesitas
+        python-version: '3.10.4'  # Especifica la versión de Python que necesitas
         
     - name: Instalar dependencias
       run: |
