@@ -2,7 +2,7 @@ name: Ejecutar Proceso Python
 
 on:
   schedule:
-    - cron: '24 15 * * 1-5'  # Ejecutar todos los días a las 11:00 am UTC
+    - cron: '28 13 * * 1-5'  # Ejecutar todos los días a las 11:00 am UTC
 
 jobs:
   ejecutar_proceso:
