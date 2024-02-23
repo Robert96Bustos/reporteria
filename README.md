@@ -1,7 +1,7 @@
 
 # Generador de Reportes Excel desde Base de Datos MySQL
 
-ste script en Python te permite generar un reporte en formato Excel a partir de datos almacenados en una base de datos MySQL. El reporte incluye las cabeceras de las columnas resaltadas en rojo y el texto en blanco para una mejor visualización.
+Este script en Python te permite generar un reporte en formato Excel a partir de datos almacenados en una base de datos MySQL. El reporte incluye las cabeceras de las columnas resaltadas en rojo y el texto en blanco para una mejor visualización.
 
 
 ## Requisitos
